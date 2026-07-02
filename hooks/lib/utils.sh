@@ -31,8 +31,7 @@ print_task_context() {
 
     # Deps: TOON has "dependsOn[N]" and "blocks[N]" sections
     local deps=$(trekker --toon dep list "$id" 2>/dev/null)
-    local dep_count=$(echo "$deps" | grep -oE 'dependsOn\[([0-9]+)\]' | grep -oE '[0-9]+')
-    dep_count=${dep_count:-0}
+    local dep_count=$(echo "$deps" | grep -c -E 'dependsOn\[|blocks\[' || true)
     if [ "$dep_count" -gt 0 ]; then
         echo "  deps:"
         echo "$deps" | grep -E '^  ' | sed 's/^/    /'

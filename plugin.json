@@ -1,0 +1,8 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "trekker",
+  "version": "1.10.3",
+  "description": "Native Antigravity 2.0 integration for the trekker issue tracker",
+  "author": { "name": "Jared Hampson" },
+  "license": "MIT"
+}

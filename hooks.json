@@ -1,0 +1,22 @@
+{
+  "trekker-hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [{ "type": "command", "command": "bash ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/session-start.sh" }]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [{ "type": "command", "command": "bash ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/task-completed.sh", "timeout": 10 }]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "*",
+        "hooks": [{ "type": "command", "command": "bash ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/task-completed.sh", "timeout": 10 }]
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "trekker": {
+      "command": "node",
+      "args": ["${ANTIGRAVITY_PLUGIN_ROOT}/mcp-server/dist/index.js"]
+    }
+  }
+}

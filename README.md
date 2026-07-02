@@ -18,13 +18,13 @@ Clone the repository or symlink it into the global plugins directory:
 
 ```bash
 # Clone the repository
-git clone https://github.com/obsfx/trekker-antigravity.git
+git clone https://github.com/jhampson-dbre/trekker-antigravity.git
 
 # Link to the global plugins path (on macOS/Linux/WSL)
 ln -s $(pwd)/trekker-antigravity ~/.gemini/config/plugins/trekker
 
 # Or on Windows PowerShell:
-New-Item -ItemType SymbolicLink -Path "$HOME\.gemini\config\plugins\trekker" -Value (Get-Item .).FullName
+New-Item -ItemType SymbolicLink -Path "$HOME\.gemini\config\plugins\trekker" -Value (Get-Item .\trekker-antigravity).FullName
 ```
 
 ### Option B: Workspace-Specific Plugin
@@ -39,7 +39,7 @@ mkdir -p .agents/plugins
 ln -s $(pwd)/trekker-antigravity .agents/plugins/trekker
 
 # Or on Windows PowerShell:
-New-Item -ItemType SymbolicLink -Path ".agents\plugins\trekker" -Value (Get-Item .).FullName
+New-Item -ItemType SymbolicLink -Path ".agents\plugins\trekker" -Value (Get-Item .\trekker-antigravity).FullName
 ```
 
 ### Configuration Files

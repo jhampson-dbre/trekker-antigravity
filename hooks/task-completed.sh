@@ -31,7 +31,7 @@ keywords=$(echo "$task_subject" | tr '[:upper:]' '[:lower:]' | \
   sed 's/[^a-z0-9 ]//g' | \
   tr ' ' '\n' | \
   grep -vE '^(the|a|an|is|are|was|were|be|been|have|has|had|do|does|did|will|would|could|should|may|might|can|for|and|nor|but|or|yet|so|at|by|in|of|on|to|up|with|from|into|that|this|it|its|fix|add|update|implement|create|remove|delete|make|set|get|new|all|not|no|run|use|check|test|write|read|build)$' | \
-  head -3)
+  head -3 || true)
 
 if [ -z "$keywords" ]; then
   exit 0

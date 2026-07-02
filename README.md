@@ -45,9 +45,9 @@ New-Item -ItemType SymbolicLink -Path ".agents\plugins\trekker" -Value (Get-Item
 ### Configuration Files
 
 The plugin uses standard configuration schemas that Antigravity 2.0 automatically discovers and loads from the plugin root directory:
-- **`hooks.json`**: Configures hooks for workflow events. Matches specific events (`SessionStart`, `PreCompact`, `Stop`, `SubagentStop`) and runs automated scripts. See [hooks.json](file:///c:/Users/jhamp/Code/trekker-antigravity/trekker-antigravity/hooks.json).
-- **`mcp_config.json`**: Declares the standard MCP configuration. Defines the `trekker` MCP server, running via Node.js from `${ANTIGRAVITY_PLUGIN_ROOT}/mcp-server/dist/index.js`. See [mcp_config.json](file:///c:/Users/jhamp/Code/trekker-antigravity/trekker-antigravity/mcp_config.json).
-- **`plugin.json`**: Provides standard plugin metadata (name, version, description, license) adhering to `https://antigravity.google/schemas/v1/plugin.json`. See [plugin.json](file:///c:/Users/jhamp/Code/trekker-antigravity/trekker-antigravity/plugin.json).
+- **`hooks.json`**: Configures hooks for workflow events. Matches specific events (`SessionStart`, `PreCompact`, `Stop`, `SubagentStop`) and runs automated scripts. See [hooks.json](./hooks.json).
+- **`mcp_config.json`**: Declares the standard MCP configuration. Defines the `trekker` MCP server, running via Node.js from `${ANTIGRAVITY_PLUGIN_ROOT}/mcp-server/dist/index.js`. See [mcp_config.json](./mcp_config.json).
+- **`plugin.json`**: Provides standard plugin metadata (name, version, description, license) adhering to `https://antigravity.google/schemas/v1/plugin.json`. See [plugin.json](./plugin.json).
 
 ### Initialize Trekker in Your Project
 

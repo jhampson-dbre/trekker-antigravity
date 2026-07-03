@@ -46,8 +46,21 @@ New-Item -ItemType SymbolicLink -Path ".agents\plugins\trekker" -Value (Get-Item
 
 The plugin uses standard configuration schemas that Antigravity 2.0 automatically discovers and loads from the plugin root directory:
 - **`hooks.json`**: Configures hooks for workflow events. Matches specific events (`SessionStart`, `PreCompact`, `Stop`, `SubagentStop`) and runs automated scripts. See [hooks.json](./hooks.json).
-- **`mcp_config.json`**: Declares the standard MCP configuration. Defines the `trekker` MCP server, running via Node.js from `${ANTIGRAVITY_PLUGIN_ROOT}/mcp-server/dist/index.js`. See [mcp_config.json](./mcp_config.json).
 - **`plugin.json`**: Provides standard plugin metadata (name, version, description, license) adhering to `https://antigravity.google/schemas/v1/plugin.json`. See [plugin.json](./plugin.json).
+
+**Note on MCP Servers**: Currently, Antigravity 2.0 does not auto-load plugin-level MCP configurations. You must manually add the `trekker` MCP server to your global `~/.gemini/config/mcp_config.json` (or `.agents/mcp_config.json` for workspace-local):
+
+```json
+{
+  "mcpServers": {
+    "trekker": {
+      "command": "node",
+      "args": ["/path/to/plugins/trekker/mcp-server/dist/index.js"]
+    }
+  }
+}
+```
+*(Replace `/path/to/plugins/` with the absolute path where you installed the plugin).*
 
 ### Initialize Trekker in Your Project
 

@@ -24,8 +24,9 @@ Find unblocked tasks ready for work:
 # Check for in-progress work first (resume if exists)
 trekker --toon task list --status in_progress
 
-# Find ready tasks by priority
-trekker --toon task list --status todo
+# Find ready (unblocked) tasks by priority — use `ready`, NOT `task list --status todo`
+# `trekker ready` checks dependency state; `task list` does not and may return blocked tasks
+trekker --toon ready
 ```
 
 Prioritize by:

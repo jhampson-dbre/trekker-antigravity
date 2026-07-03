@@ -1,5 +1,5 @@
 {
-  "name": "@obsfx/trekker-mcp-antigravity",
+  "name": "@jhampson-dbre/trekker-mcp-antigravity",
   "version": "1.10.3",
   "description": "MCP server for trekker issue tracker",
   "type": "module",
@@ -37,7 +37,7 @@
     "url": "https://github.com/jhampson-dbre/trekker-antigravity/issues"
   },
   "homepage": "https://github.com/jhampson-dbre/trekker-antigravity#readme",
-  "author": "Omer Can Balandi",
+  "author": "Jared Hampson",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",

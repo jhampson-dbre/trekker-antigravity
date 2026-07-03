@@ -213,15 +213,13 @@ trekker-antigravity/
 │   ├── session-start.sh      # SessionStart hook script
 │   ├── pre-compact.sh        # PreCompact hook script
 │   └── task-completed.sh     # Stop/SubagentStop hook script
-└── docs/
-    └── state-management.md   # SQLite persistence and conflict handling
 ```
 
 ## Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/obsfx/trekker-antigravity.git
+git clone https://github.com/jhampson-dbre/trekker-antigravity.git
 cd trekker-antigravity
 
 # Build MCP server

@@ -3,12 +3,12 @@
 
 # Extract count from toon format (paginated: "total: N" on first line)
 get_toon_count() {
-    grep -m1 '^total:' | sed 's/^total:[[:space:]]*//'
+    grep -m1 '^total:' | sed 's/^total:[[:space:]]*//' || true
 }
 
 # Extract task IDs from toon paginated output (items section)
 get_toon_task_ids() {
-    grep -oE 'TREK-[0-9]+' | head -50
+    grep -oE 'TREK-[0-9]+' | head -50 || true
 }
 
 # Compact task context: id, title, desc, last 3 comment lines, deps

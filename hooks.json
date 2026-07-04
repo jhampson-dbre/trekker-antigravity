@@ -1,27 +1,16 @@
 {
   "trekker-hooks": {
-    "SessionStart": [
+    "PreInvocation": [
       {
-        "matcher": "*",
-        "hooks": [{ "type": "command", "command": "bash ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/session-start.sh" }]
-      }
-    ],
-    "PreCompact": [
-      {
-        "matcher": "*",
-        "hooks": [{ "type": "command", "command": "bash ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/pre-compact.sh" }]
+        "type": "command",
+        "command": "python ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/session-start.py"
       }
     ],
     "Stop": [
       {
-        "matcher": "*",
-        "hooks": [{ "type": "command", "command": "bash ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/task-completed.sh", "timeout": 10 }]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "matcher": "*",
-        "hooks": [{ "type": "command", "command": "bash ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/task-completed.sh", "timeout": 10 }]
+        "type": "command",
+        "command": "python ${ANTIGRAVITY_PLUGIN_ROOT}/hooks/task-completed.py",
+        "timeout": 10
       }
     ]
   }

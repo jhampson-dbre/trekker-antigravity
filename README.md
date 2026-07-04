@@ -6,6 +6,7 @@ An Antigravity 2.0 plugin for [trekker](https://github.com/obsfx/trekker), the A
 
 - [trekker](https://github.com/obsfx/trekker) CLI installed globally
 - Node.js 18+
+- Python 3+ (required for cross-platform hook wrappers)
 - Antigravity 2.0 environment
 
 ## Installation
@@ -138,22 +139,16 @@ The plugin also installs workflow skills under `skills/` to provide general cont
 | `find-duplicates` | Detect duplicate tasks before creating new ones |
 | `smart-query` | Intelligent task querying |
 
-### Hooks (4 hooks)
+### Hooks (2 hooks)
 
-The plugin includes hooks configured in `hooks.json` for context management and workflow automation:
+The plugin includes hooks configured in `hooks.json` for context management and workflow automation. These utilize Python wrappers for native Windows/macOS/Linux compatibility:
 
-- **SessionStart**: Runs when the Antigravity session starts. Invokes `hooks/session-start.sh` to:
+- **PreInvocation**: Runs before the model is called on the first turn of a session. Invokes `hooks/session-start.py` to:
   - Show in-progress tasks with recent comments (resume context)
   - Show ready tasks if no work is in progress
   - Provide workflow reminders
-- **PreCompact**: Runs before context compaction. Invokes `hooks/pre-compact.sh` to:
-  - Remind to save checkpoint comments
-  - List all in-progress tasks with details
-  - Show recent comments for context preservation
-  - Provide checkpoint comment template
-- **Stop / SubagentStop**: Runs when a task or subagent completes. Invokes `hooks/task-completed.sh` to:
-  - Scan the assistant's final message for completed task references
-  - Automatically mark matching tasks as completed in Trekker
+- **Stop**: Runs when a task or subagent completes its execution loop. Invokes `hooks/task-completed.py` to:
+  - Serve as a "Safety Gate": if the agent has active `in_progress` tasks, it injects a reminder to complete them.
   - Show next ready task to continue the workflow
 
 ## Usage
@@ -261,7 +256,7 @@ pnpm dev
 
 ### Hooks not running
 
-1. Ensure hook scripts are executable: `chmod +x hooks/*.sh`
+1. Ensure Python 3+ is installed and accessible in your PATH: `python --version`
 2. Verify trekker is initialized in project: `ls .trekker`
 
 ## License
